@@ -16,19 +16,31 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  character_position = 0
+  while character_position < length(array)
+    print array[character_position]
+    character_position += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  value_position = 0
+  while value_position < length
+    if array[value_position] == value_to_find
+      return true
+    else
+      value_position += 1
+    end
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  
 end
 
 # Finds and returns the smallest integer value in the array
@@ -72,4 +84,4 @@ def sort(array, length)
     end
   end
 end
-## --- END OF METHODS ---
+# --- END OF METHODS ---
