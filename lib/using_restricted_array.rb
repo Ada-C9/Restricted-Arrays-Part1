@@ -18,6 +18,9 @@ end
 # Prints each integer values in the array
 def print_array(array)
   # raise NotImplementedError
+  array.length.times do |i|
+    print array[i]
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -36,12 +39,26 @@ end
 # Assumes that the array is not sorted.
 def find_largest(array, length)
   # raise NotImplementedError
+  max_val = 0
+  length.times do |i|
+    if array[i] > max_val
+      max_val = array[i]
+    end
+  end
+  return max_val
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
   # raise NotImplementedError
+  min_val = array[0]
+  length.times do |i|
+    if array[i] < min_val
+      min_val = array[i]
+    end
+  end
+  return min_val
 end
 
 # Reverses the values in the integer array in place
