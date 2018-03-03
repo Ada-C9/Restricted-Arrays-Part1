@@ -3,6 +3,8 @@ require 'minitest/reporters'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
 describe "restricted array" do
   it "length method" do
     size = 5
@@ -12,6 +14,14 @@ describe "restricted array" do
 
     my_integer_array_length.must_equal size
   end
+
+  # it "print_array method" do
+  #   size = 5
+  #   my_integer_array = RestrictedArray.new(size)
+  #
+  #    print_array(my_integer_array).must_equal
+  #
+  # end
 
   it "linear search method - value exists in the middle, in the array" do
     size = 9
