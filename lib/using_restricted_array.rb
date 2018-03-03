@@ -68,19 +68,19 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  i = 0
-  j = length - 1
+  start_value = 0
+  end_value = length - 1
 
   if length == 1
     return array
   end
 
-  while i < j
-    t = array[i]
-    array[i] = array[j]
-    array[j] = t
-    i += 1
-    j -= 1
+  while start_value < end_value
+    temp_storage = array[start_value]
+    array[start_value] = array[end_value]
+    array[end_value] = temp_storage
+    start_value += 1
+    end_value -= 1
   end
 
   return array
