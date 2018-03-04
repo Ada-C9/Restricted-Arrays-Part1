@@ -19,7 +19,7 @@ end
 def print_array(array)
   # raise NotImplementedError
   array.length.times do |i|
-    print array[i]
+    print "#{array[i]} "
   end
 end
 
@@ -39,7 +39,7 @@ end
 # Assumes that the array is not sorted.
 def find_largest(array, length)
   # raise NotImplementedError
-  max_val = 0
+  max_val = array[0]
   length.times do |i|
     if array[i] > max_val
       max_val = array[i]
@@ -64,12 +64,41 @@ end
 # Reverses the values in the integer array in place
 def reverse(array, length)
   # raise NotImplementedError
+  beginning = 0
+  ending = length - 1
+  iterat = length / 2
+  iterat.times do
+    hold = array[ending]
+    array[ending] = array[beginning]
+    array[beginning] = hold
+    beginning += 1
+    ending -= 1
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
   # raise NotImplementedError
+  low = 0
+  high = length - 1
+  while low < high
+    mid = (high + low) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    else
+      low = mid + 1
+    end
+  end
+  if array[low] == value_to_find
+    return true
+  else
+    return false
+  end
+
 end
 
 # Helper method provided to sort the array in ascending order
