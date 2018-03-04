@@ -88,14 +88,17 @@ def binary_search(array, length, value_to_find)
 
   while low < high
     mid = (low + high) / 2
-    if array[mid] > value_to_find
-      high = mid - 1
-    elsif array[mid] < value_to_find
-      low = mid + 1
-    else
+    if array[low] == value_to_find || array[high] == value_to_find
       return true
+    elsif array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    else
+      low = mid + 1
     end
   end
+  return false
 
 end
 
