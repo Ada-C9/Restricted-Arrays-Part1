@@ -18,7 +18,7 @@ end
 def print_array(array)
   character_position = 0
   while character_position < length(array)
-    print array[character_position]
+    print "#{array[character_position]} "
     character_position += 1
   end
 end
