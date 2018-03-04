@@ -1,4 +1,5 @@
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -7,7 +8,11 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  i = 0
+  while array[i] != nil
+    i += 1
+  end
+  return i
 end
 
 # Prints each integer values in the array
@@ -33,10 +38,11 @@ def find_smallest(array, length)
   raise NotImplementedError
 end
 
-# Reverses the values in the integer array in place
-def reverse(array, length)
-  raise NotImplementedError
-end
+# # Note: will update this after class on March 15th.
+# # Reverses the values in the integer array in place
+# def reverse(array, length)
+#   raise NotImplementedError
+# end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
@@ -69,3 +75,8 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
+
+# # UI
+# test_array = RestrictedArray.new(5)
+# array_length = length(test_array)
+# puts array_length
