@@ -87,6 +87,7 @@ describe "restricted array" do
   end
 
   it "reverse array - odd count" do
+    skip
     size = 9
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -105,6 +106,7 @@ describe "restricted array" do
   end
 
   it "reverse array - even count" do
+    skip
     size = 8
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -122,6 +124,7 @@ describe "restricted array" do
   end
 
   it "find largest in sorted, reversed array" do
+    skip
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -133,6 +136,7 @@ describe "restricted array" do
   end
 
   it "find smallest in sorted, reversed array" do
+    skip
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -144,6 +148,8 @@ describe "restricted array" do
   end
 
   it "linear search method on sorted, reversed array - value exists in the array" do
+    skip
+  
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -162,6 +168,7 @@ describe "restricted array" do
       my_integer_array[i] = i * 10
     end
     value_to_find = (size - 1) * 10
+    # binding.pry
 
     binary_search(my_integer_array, size, value_to_find).must_equal true
   end
