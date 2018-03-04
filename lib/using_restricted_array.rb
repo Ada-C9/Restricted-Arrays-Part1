@@ -17,13 +17,33 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  while array[i] != nil
+    puts array[i]
+    i += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  high = array.length - 1
+  mid = ((low + high) / 2)
+  while low < high
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    elsif array[mid] < value_to_find
+      low = mid + 1
+    end
+    if array[low] == value_to_find
+      return true
+    else
+      return false
+    end
+  end
 end
 
 # Finds and returns the largest integer value the array
@@ -76,7 +96,7 @@ def sort(array, length)
 end
 ## --- END OF METHODS ---
 
-# # UI
-# test_array = RestrictedArray.new(5)
-# array_length = length(test_array)
-# puts array_length
+# UI
+test_array = RestrictedArray.new(5)
+array = print_array(test_array)
+puts array
