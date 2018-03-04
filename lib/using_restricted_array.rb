@@ -28,7 +28,7 @@ end
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
   low = 0
-  high = array.length - 1
+  high = length - 1
   mid = ((low + high) / 2)
   while low < high
     if array[mid] == value_to_find
@@ -39,6 +39,8 @@ def search(array, length, value_to_find)
       low = mid + 1
     end
     if array[low] == value_to_find
+      return true
+    elsif array[high] == value_to_find
       return true
     else
       return false
