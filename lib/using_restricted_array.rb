@@ -56,8 +56,8 @@ end
 def find_smallest(array, length)
   smallest_integer_value = array[0]
   integer_position = 0
-  while integer_position > length
-    if smallest_integer_value < array[integer_position]
+  while integer_position < length
+    if array[integer_position] < smallest_integer_value
       smallest_integer_value = array[integer_position]
     end
     integer_position += 1
@@ -67,13 +67,38 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  reverse_array = Array.new(length)
+  length.times do |index|
+    reverse_array[index] = array[index]
+  end
+
+  integer_position = 0
+  reverse_integer_position = length - 1
+
+  while reverse_integer_position >= 0
+    array[integer_position] = reverse_array[reverse_integer_position]
+    reverse_integer_position -= 1
+    integer_position += 1
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  min = 0
+  max = length - 1
+  while min <= max
+    mid = (max + min) / 2
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] < value_to_find
+      min = mid + 1
+    else
+      max = mid - 1
+    end
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
