@@ -70,7 +70,7 @@ def reverse(array, length)
   i = 0
   j = 0
   temp = 0
-  while i < length/2 + 1
+  while i < length/2
     begins = array[i]
     ends = array[length-1-j]
     temp = begins
@@ -164,27 +164,3 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
-
-size = 5
-my_integer_array = RestrictedArray.new(size)
-puts"**********sort"
-sort(my_integer_array, 5)
-puts my_integer_array[0]
-puts my_integer_array[1]
-puts my_integer_array[2]
-puts my_integer_array[3]
-puts my_integer_array[4]
-puts "**************reverse"
-reverse(my_integer_array, 5)
-puts my_integer_array[0]
-puts my_integer_array[1]
-puts my_integer_array[2]
-puts my_integer_array[3]
-puts my_integer_array[4]
-puts '**********sorted'
-sort(my_integer_array, 5)
-puts my_integer_array[0]
-puts my_integer_array[1]
-puts my_integer_array[2]
-puts my_integer_array[3]
-puts my_integer_array[4]
