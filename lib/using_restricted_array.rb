@@ -52,15 +52,17 @@ end
 # Assumes that the array is not sorted.
 def find_largest(array, length)
   i = 0
+  # binding.pry
   largest_value = array[0]
-  while array[i] < length
+  # if array[length - 1] > largest_value
+  #   largest_value = array[length - 1]
+  # end
+  # return largest_value
+  while i < length
     if array[i] > largest_value
       largest_value = array[i]
-      i += 1
     end
-  end
-  if array[length - 1] > largest_value
-    largest_value = array[length - 1]
+    i += 1
   end
   return largest_value
 end
@@ -111,5 +113,5 @@ end
 
 # UI
 test_array = RestrictedArray.new(5)
-array = print_array(test_array)
+array = find_largest(test_array, 5)
 puts array
