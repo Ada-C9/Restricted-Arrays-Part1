@@ -1,5 +1,4 @@
 require_relative 'restricted_array.rb'
-require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -27,25 +26,14 @@ end
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  low = 0
-  high = length - 1
-  mid = ((low + high) / 2)
-  while low < high
-    if array[mid] == value_to_find
+  i = 0
+  while i < length
+    if array[i] == value_to_find
       return true
-    elsif array[mid] > value_to_find
-      high = mid - 1
-    elsif array[mid] < value_to_find
-      low = mid + 1
     end
-    if array[low] == value_to_find
-      return true
-    elsif array[high] == value_to_find
-      return true
-    else
-      return false
-    end
+    i += 1
   end
+  return false
 end
 
 # Finds and returns the largest integer value the array
@@ -85,7 +73,25 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  high = length - 1
+  mid = ((low + high) / 2)
+  while low < high
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    elsif array[mid] < value_to_find
+      low = mid + 1
+    end
+    if array[low] == value_to_find
+      return true
+    elsif array[high] == value_to_find
+      return true
+    else
+      return false
+    end
+  end
 end
 
 # Helper method provided to sort the array in ascending order
@@ -113,8 +119,3 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
-
-# UI
-test_array = RestrictedArray.new(5)
-array = find_largest(test_array, 5)
-puts array
