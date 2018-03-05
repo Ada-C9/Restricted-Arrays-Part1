@@ -41,9 +41,7 @@ def find_largest(array, length)
   i = 0
   max = array[i]
   while array[i] != nil
-    if array[i] > max
-      max = array[i]
-    end
+    array[i] > max ? max = array[i] : max = max
     i += 1
   end
   return max
@@ -55,9 +53,7 @@ def find_smallest(array, length)
   i = 0
   min = array[i]
   while array[i] != nil
-    if array[i] < min
-      min = array[i]
-    end
+     array[i] < min ? min = array[i] : min = min
     i += 1
   end
   return min
