@@ -7,41 +7,101 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  counter = 0
+  while array[counter] != nil
+    counter += 1
+  end
+  return counter
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  counter = 0
+  while array[counter] != nil
+    print array[counter]
+    counter += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  i = 0
+  while i < length
+    if array[i] == value_to_find
+      return true
+    end
+    i += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  i = 0
+  max = array[0]
+
+  while i < length
+    if array[i] > max
+      max = array[i]
+    end
+    i += 1
+  end
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  i = 0
+  min = array[0]
+
+  while i < length
+    if array[i] < min
+      min = array[i]
+    end
+    i += 1
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  i = 1
+  new_array = []
+  (length).times do
+    new_array << array[length - i]
+    i += 1
+  end
+  counter = 0
+  length.times do
+    array[counter] = new_array[counter]
+    counter += 1
+  end
+
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  high = (length - 1)
+  mid = (high + low) / 2
+
+  while array[low] < array[high]
+    if array[mid] == value_to_find || array[low] == value_to_find || array[high] == value_to_find
+      return true
+    elsif array[mid] > array[high]
+      high = array[mid] - 1
+    elsif array[mid] < array[low]
+      array[low] = array[mid] + 1
+    else
+      return false
+    end
+  end
+
 end
 
 # Helper method provided to sort the array in ascending order
