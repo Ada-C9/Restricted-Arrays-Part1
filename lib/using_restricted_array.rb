@@ -17,7 +17,13 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  string = "#{array[0]}"
+  i = 1
+  until array[i] == nil
+    string += " #{array[i]}"
+    i += 1
+  end
+  return string
 end
 
 # For an unsorted array, searches for 'value_to_find'.
