@@ -67,7 +67,7 @@ describe "restricted array" do
     largest.must_equal my_integer_array[size - 1]
   end
 
-  xit "find smallest in unsorted array" do
+  it "find smallest in unsorted array" do
     size = 12
     my_integer_array = RestrictedArray.new(size)
 
@@ -77,7 +77,7 @@ describe "restricted array" do
     smallest.must_equal my_integer_array[0]
   end
 
-  xit "find smallest in sorted array" do
+  it "find smallest in sorted array" do
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
