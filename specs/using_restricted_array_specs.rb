@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
+require 'pry'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 
@@ -87,7 +88,7 @@ describe "restricted array" do
     smallest.must_equal my_integer_array[0]
   end
 
-  xit "reverse array - odd count" do
+  it "reverse array - odd count" do
     size = 9
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -104,7 +105,7 @@ describe "restricted array" do
     end
   end
 
-  xit "reverse array - even count" do
+  it "reverse array - even count" do
     size = 8
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
