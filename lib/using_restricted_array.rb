@@ -18,7 +18,11 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  printed_array = []
+  until array[i] ==nil
+    printed_array << array[i]
+  end
+  print printed_array
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -26,10 +30,7 @@ end
 def search(array, length, value_to_find)
   i = 0
   until array[i] == nil
-    array[i]
-    if array[i] == value_to_find
-      return true
-    end
+    return true if array[i] == value_to_find
     i+=1
   end
   return false
@@ -44,6 +45,7 @@ def find_largest(array, length)
     array[i] > max ? max = array[i] : max = max
     i += 1
   end
+
   return max
 end
 
@@ -53,7 +55,7 @@ def find_smallest(array, length)
   i = 0
   min = array[i]
   while array[i] != nil
-     array[i] < min ? min = array[i] : min = min
+    array[i] < min ? min = array[i] : min = min
     i += 1
   end
   return min
@@ -90,47 +92,28 @@ def binary_search(array, length, value_to_find)
   midpoint = (length-1)/2
   bottom = 0
   top = length-1
-  n= 1
-  if value_to_find == array[top]
-    return true
-  end
-
-  if value_to_find == array[bottom]
-    return true
-  end
+  n = 1
+  return true if value_to_find == array[top]
+  return true if value_to_find == array[bottom]
 
   while n < length/(2*n)
+    #refactoring after this point became more confusing for the reader than efficient for the compiler
+      return true if array[midpoint] == value_to_find
 
-    if array[midpoint] == value_to_find
-      return true
-    elsif  n < length/(2*n)
-      if array[midpoint] != value_to_find
-
-        midpoint = midpoint + (top - bottom)/2
-
-        if value_to_find > midpoint
-
-          top = midpoint + (top-bottom)/2
-          bottom = midpoint
-          n+=1
-
-        else
-
-          value_to_find midpoint < midpoint
-
-          bottom = midpoint - (top-bottom)/2
-          top = midpoint
-          n+=1
-
-        end
-      end
+      #redefine midpoint if it is not the value to find
+      midpoint = midpoint + (top - bottom)/2
+      #if value to find is greater or less than midpoint
+      #reassign top and bottom
+      value_to_find > midpoint ? (top = midpoint + (top-bottom)/2; bottom = midpoint; n+=1)
+      #less than midpoint
+      : (bottom = midpoint - (top-bottom)/2;
+      top = midpoint;
+      n+=1)
+      #
     end
-  end
+    return false if n > length/(2*n)
 
 
-  if n > length/(2*n)
-    return false
-  end
 
 end
 
