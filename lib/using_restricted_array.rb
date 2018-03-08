@@ -33,7 +33,13 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  largest = array[0]
+  (length - 1).times do |i|
+    if array[i + 1] > largest
+      largest = array[i + 1]
+    end
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array

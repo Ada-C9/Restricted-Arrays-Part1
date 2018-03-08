@@ -47,7 +47,7 @@ describe "restricted array" do
     search(my_integer_array, size, value_to_find).must_equal false
   end
 
-  xit "find largest in unsorted array" do
+  it "find largest in unsorted array" do
     size = 17
     my_integer_array = RestrictedArray.new(size)
 
@@ -57,7 +57,7 @@ describe "restricted array" do
     largest.must_equal my_integer_array[size - 1]
   end
 
-  xit "find largest in sorted array" do
+  it "find largest in sorted array" do
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
