@@ -23,7 +23,7 @@ def print_array(array)
     string += " #{array[i]}"
     i += 1
   end
-  return string
+  puts string
 end
 
 # For an unsorted array, searches for 'value_to_find'.

@@ -9,18 +9,11 @@ describe "restricted array" do
   it "length method" do
     size = 5
     my_integer_array = RestrictedArray.new(size)
+    print_array(my_integer_array)
 
     my_integer_array_length = length(my_integer_array)
 
     my_integer_array_length.must_equal size
-  end
-
-  it "print method" do
-    my_integer_array_1 = RestrictedArray.new(0)
-    my_integer_array_2 = RestrictedArray.new(3)
-
-    print_array(my_integer_array_1).must_equal ""
-    print_array(my_integer_array_2).must_equal "#{my_integer_array_2[0]} #{my_integer_array_2[1]} #{my_integer_array_2[2]}"
   end
 
   it "linear search method - value exists in the middle, in the array" do
