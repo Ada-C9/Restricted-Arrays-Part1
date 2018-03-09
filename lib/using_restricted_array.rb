@@ -16,7 +16,13 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  string = ""
+  while array[i] != nil
+    string += array[i].to_s
+    i += 1
+  end
+  return string
 end
 
 # For an unsorted array, searches for 'value_to_find'.

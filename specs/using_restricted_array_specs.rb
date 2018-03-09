@@ -187,4 +187,13 @@ describe "restricted array" do
   #
   #   binary_search(my_integer_array, size, value_to_find).must_equal false
   # end
+
+  it "prints each value in the array" do
+    my_array = [1,2,3,4,5]
+
+    output_string = print_array(my_array)
+
+    output_string.must_equal "12345"
+  end
+
 end
