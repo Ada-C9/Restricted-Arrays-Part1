@@ -12,7 +12,6 @@ def length(array)
     i += 1
   end
   return i
-  raise NotImplementedError
 end
 
 # Prints each integer values in the array
@@ -23,13 +22,38 @@ end
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  puts array
+  i = 0
+  if length == 0
+    return false
+  else
+    while i < length
+      if array[i] == value_to_find
+        return true
+      else
+        i += 1
+      end
+    end
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  i = 0
+  largest_value = array[0]
+  if length == 0
+    return false
+  else
+    while i < length
+      if array[i] > largest_value
+        largest_value = array[i]
+      end
+      i += 1
+    end
+  end
+  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
@@ -39,9 +63,9 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-def reverse(array, length)
-  raise NotImplementedError
-end
+# def reverse(array, length)
+#   raise NotImplementedError
+# end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
