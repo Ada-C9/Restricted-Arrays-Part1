@@ -59,7 +59,19 @@ end
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  i = 0
+  smallest_value = array[0]
+  if length == 0
+    return false
+  else
+    while i < length
+      if array[i] < smallest_value
+        smallest_value = array[i]
+      end
+      i += 1
+    end
+  end
+  return smallest_value
 end
 
 # Reverses the values in the integer array in place
