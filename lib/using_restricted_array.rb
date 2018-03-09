@@ -84,11 +84,28 @@ end
 # def reverse(array, length)
 #   raise NotImplementedError
 # end
-
+# [1, 2, 3, 4, 5]
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  low = 0
+  high = length - 1
+
+  if length == 0
+    return false
+  else
+    while low < high
+      mid = (low + high) / 2
+      if array[mid] == value_to_find || array[low] == value_to_find || array[high] == value_to_find
+        return true
+      elsif array[mid] > value_to_find
+        high = mid - 1
+      elsif array[mid] < value_to_find
+        low = mid + 1
+      end
+    end
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
