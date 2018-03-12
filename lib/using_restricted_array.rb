@@ -72,7 +72,7 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-
+  raise NotImplementedError
 end
 
 
