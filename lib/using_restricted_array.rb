@@ -7,35 +7,66 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  index = 0
+  index += 1 while !array[index].nil?
+  return index
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+  while !array[index] == nil?
+    puts array[index]
+    index += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  is_found = false
+  index = 0
+  while !is_found && index < length
+    is_found = array[index] == value_to_find
+    index += 1
+  end
+  return is_found
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  largest = 0
+  index = 0
+  while index < length
+    largest = array[index] if array[index] > largest
+    index += 1
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest = array[0]
+  index = 1
+  while index < length
+    smallest = array[index] if array[index] < smallest
+    index += 1
+  end
+  return smallest
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  mid = length / 2
+  index = 0
+  while index < mid
+    temp_holder = array[index]
+    array[index] = array[length - index - 1]
+    array[length - index - 1] = temp_holder
+    index += 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -43,6 +74,7 @@ end
 def binary_search(array, length, value_to_find)
   raise NotImplementedError
 end
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
@@ -68,4 +100,5 @@ def sort(array, length)
     end
   end
 end
+
 ## --- END OF METHODS ---
