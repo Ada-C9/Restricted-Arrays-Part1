@@ -16,8 +16,16 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  string = "#{array[0]}"
+  i = 1
+  until array[i] == nil
+    string += " #{array[i]}"
+    i += 1
+  end
+  puts string
 end
+
+
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
@@ -44,21 +52,21 @@ def find_largest(array, length)
   end
 end
 
-  # Finds and returns the smallest integer value in the array
-  # Assumes that the array is not sorted.
-  def find_smallest(array, length)
-    smallest = array[0]
+# Finds and returns the smallest integer value in the array
+# Assumes that the array is not sorted.
+def find_smallest(array, length)
+  smallest = array[0]
   (length - 1).times do |i|
     if array[i + 1] < smallest
       smallest = array[i + 1]
     end
   end
   return smallest
-  end
+end
 
-  # Reverses the values in the integer array in place
-  def reverse(array, length)
-    reversed_array = RestrictedArray.new(length)
+# Reverses the values in the integer array in place
+def reverse(array, length)
+  reversed_array = RestrictedArray.new(length)
   length.times do |i|
     reversed_array[i] = array[length - 1 - i]
   end
@@ -66,12 +74,12 @@ end
     array[i] = reversed_array[i]
   end
   return array
-  end
+end
 
-  # For an array sorted in ascending order, searches for 'value_to_find'.
-  # Returns true if found, false otherwise.
-  def binary_search(array, length, value_to_find)
-    lowest_num = 0
+# For an array sorted in ascending order, searches for 'value_to_find'.
+# Returns true if found, false otherwise.
+def binary_search(array, length, value_to_find)
+  lowest_num = 0
   highest_num = length
   middle_num = (lowest_num + highest_num) / 2
   while lowest_num < middle_num
@@ -86,30 +94,30 @@ end
     end
   end
   return false
-  end
+end
 
-  # Helper method provided to sort the array in ascending order
-  # Implements selection sort
-  # Time complexity = O(n^2) since to find the correct value to be in a given location,
-  # all the remaining elements are visited. This is done for each location.
-  # (nested loop of size n each)
-  # Space complexity = O(1) since the additional storage needed does not depend
-  #                    on input array size.
-  def sort(array, length)
-    length.times do |index| # outer loop - n elements
-      min_index = index # assume index is where the next minimally value is
-      temp_index = index+1 # compare with values at index+1 to length-1
-      while temp_index < length # inner loop - n-1 elements
-        if array[temp_index] < array[min_index] # found a new minimum, update min_index
-          min_index = temp_index
-        end
-        temp_index += 1 # move to next index
+# Helper method provided to sort the array in ascending order
+# Implements selection sort
+# Time complexity = O(n^2) since to find the correct value to be in a given location,
+# all the remaining elements are visited. This is done for each location.
+# (nested loop of size n each)
+# Space complexity = O(1) since the additional storage needed does not depend
+#                    on input array size.
+def sort(array, length)
+  length.times do |index| # outer loop - n elements
+    min_index = index # assume index is where the next minimally value is
+    temp_index = index+1 # compare with values at index+1 to length-1
+    while temp_index < length # inner loop - n-1 elements
+      if array[temp_index] < array[min_index] # found a new minimum, update min_index
+        min_index = temp_index
       end
-      if min_index != index # next minimum value is not at current index, swap
-        temp = array[min_index]
-        array[min_index] = array[index]
-        array[index] = temp
-      end
+      temp_index += 1 # move to next index
+    end
+    if min_index != index # next minimum value is not at current index, swap
+      temp = array[min_index]
+      array[min_index] = array[index]
+      array[index] = temp
     end
   end
-  ## --- END OF METHODS ---
+end
+## --- END OF METHODS ---
