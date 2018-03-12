@@ -7,42 +7,99 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  index = 0
+  until array[index] == nil
+    index += 1
+  end
+  return index
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+  until array[index] == nil
+    return array[index]
+    index += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  result = false
+  length.times do |index|
+    if array[index] == value_to_find
+      result = true
+    end
+    index += 1
+  end
+  return result
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  max = 0
+  length.times do |i|
+    if array[i] > max
+      max = array[i]
+    end
+    i += 1
+  end
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  min = array[0]
+  length.times do |i|
+    if array[i] < min
+      min = array[i]
+    end
+    i += 1
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  a = 0
+  b = 1
+  if length % 2 == 0
+    t = length / 2
+  else
+    t = (length / 2) + 1
+  end
+  t.times do |i|
+    x = array[a]
+    array[a] = array[length - b]
+    array[length - b] = x
+
+    a += 1
+    b += 1
+  end
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  m = ( length / 2 ).to_i
+  result = false
+  while m > 1
+    if array[m] == value_to_find
+      return true
+    elsif array[m] < value_to_find
+      m = ((length - m) / 2).to_i
+    else array[m] > value_to_find
+      m = (m / 2).to_i
+    end
+  end
+  return result
 end
+
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
