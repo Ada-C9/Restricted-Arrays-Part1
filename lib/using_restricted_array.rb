@@ -7,42 +7,124 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  length = 0
+  idx = 0
+  until array[idx] == nil
+    length += 1
+    idx+= 1
+  end
+  return length
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  idx = 0
+  until array[idx] == nil
+    print array[idx]
+    idx += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+
+  if length == 0 || length == nil
+    return false
+  end
+
+  if value_to_find == nil
+    return false
+  end
+
+  idx = 0
+  length.times do
+    if array[idx] == value_to_find
+      return true
+    end
+    idx += 1
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  if length == 0 || length == nil
+    return nil
+  end
+
+  idx = 0
+  largest_value = array[0]
+  length.times do
+    if array[idx] >= largest_value
+      largest_value = array[idx]
+    end
+    idx += 1
+  end
+  return largest_value
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  if length == 0
+    return nil
+  end
+
+  idx = 0
+  smallest_value = array[0]
+
+  length.times do
+    if array[idx] <= smallest_value
+      smallest_value = array[idx]
+    end
+    idx += 1
+  end
+  return smallest_value
 end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  if length == 0 || length == nil
+    return false
+  end
+
+  if value_to_find == nil
+    return false
+  end
+
+  low = 0
+  mid = length / 2
+  high = length - 1
+
+
+
+  while low < high
+    if array[mid] == value_to_find
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    elsif array[mid] < value_to_find
+      low = mid + 1
+    end
+
+    if array[low] == value_to_find
+      return true
+    elsif array[high] == value_to_find
+      return true
+    else
+      return false
+    end
+  end
 end
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
@@ -69,3 +151,6 @@ def sort(array, length)
   end
 end
 ## --- END OF METHODS ---
+my_array = [1, 2, 3, 4]
+puts "result of method is:"
+puts reverse(my_array, 3)
