@@ -7,30 +7,55 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
-  raise NotImplementedError
+  index = 0
+  until array[index].nil?
+    index += 1
+  end
+  return index
 end
 
 # Prints each integer values in the array
 def print_array(array)
-  raise NotImplementedError
+  index = 0
+  until array[index].nil?
+    puts "#{array[index]} "
+    index += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  length.times {|index| return true if array[index] == value_to_find}
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  raise NotImplementedError
+  return array[0] if length < 2
+  largest = array[0]
+  0.upto(length-1) do |index|
+    element = array[index]
+    if element > largest
+      largest = element
+    end
+  end
+  largest
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  raise NotImplementedError
+  return array[0] if length < 2
+  smallest = array[0]
+  0.upto(length-1) do |index|
+    element = array[index]
+    if element < smallest
+      smallest = element
+    end
+  end
+  smallest
 end
 
 # Reverses the values in the integer array in place
@@ -41,9 +66,22 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
-end
+  first = 0
+  last = length - 1
 
+  while first <= last
+    i = (first + last) / 2
+
+    if array[i] == value_to_find
+      return true
+    elsif array[i] > value_to_find
+      last = i - 1
+    elsif array[i] < value_to_find
+      first = i + 1
+    end
+  end
+  return false
+end
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
 # Time complexity = O(n^2) since to find the correct value to be in a given location,
