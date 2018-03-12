@@ -141,18 +141,18 @@ describe "restricted array" do
 
     smallest.must_equal my_integer_array[size - 1]
   end
-  
-  # it "linear search method on sorted, reversed array - value exists in the array" do
-  #   size = 13
-  #   my_integer_array = RestrictedArray.new(size)
-  #   size.times do |i|
-  #     my_integer_array[i] = i * 10
-  #   end
-  #   value_to_find = 0
-  #   reverse(my_integer_array, size)
-  #
-  #   search(my_integer_array, size, value_to_find).must_equal true
-  # end
+
+  it "linear search method on sorted, reversed array - value exists in the array" do
+    size = 13
+    my_integer_array = RestrictedArray.new(size)
+    size.times do |i|
+      my_integer_array[i] = i * 10
+    end
+    value_to_find = 0
+    reverse(my_integer_array, size)
+
+    search(my_integer_array, size, value_to_find).must_equal true
+  end
   #
   # it "binary search method - value exists at the last index in the array" do
   #   size = 13

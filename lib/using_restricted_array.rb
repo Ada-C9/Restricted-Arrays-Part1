@@ -58,7 +58,14 @@ end
 
   # Reverses the values in the integer array in place
   def reverse(array, length)
-    raise NotImplementedError
+    reversed_array = RestrictedArray.new(length)
+  length.times do |i|
+    reversed_array[i] = array[length - 1 - i]
+  end
+  length.times do |i|
+    array[i] = reversed_array[i]
+  end
+  return array
   end
 
   # For an array sorted in ascending order, searches for 'value_to_find'.
