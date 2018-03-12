@@ -77,6 +77,7 @@ describe "restricted array" do
   end
 
   it "find smallest in sorted array" do
+
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -87,6 +88,7 @@ describe "restricted array" do
   end
 
   it "reverse array - odd count" do
+
     size = 9
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -104,6 +106,7 @@ describe "restricted array" do
   end
 
   it "reverse array - even count" do
+
     size = 8
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -121,6 +124,7 @@ describe "restricted array" do
   end
 
   it "find largest in sorted, reversed array" do
+  
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -132,6 +136,7 @@ describe "restricted array" do
   end
 
   it "find smallest in sorted, reversed array" do
+
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -143,6 +148,7 @@ describe "restricted array" do
   end
 
   it "linear search method on sorted, reversed array - value exists in the array" do
+
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -155,6 +161,7 @@ describe "restricted array" do
   end
 
   it "binary search method - value exists at the last index in the array" do
+
     size = 13
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -166,6 +173,7 @@ describe "restricted array" do
   end
 
   it "binary search method - value exists at the middle index in the array" do
+
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
@@ -177,6 +185,7 @@ describe "restricted array" do
   end
 
   it "binary search method - value does not exist in the array" do
+
     size = 15
     my_integer_array = RestrictedArray.new(size)
     size.times do |i|
