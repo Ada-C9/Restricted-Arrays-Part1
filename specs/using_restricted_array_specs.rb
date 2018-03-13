@@ -1,8 +1,16 @@
+
+require 'minitest/skip_dsl'
 require 'minitest/autorun'
 require 'minitest/reporters'
+
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
+
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 
+
+# added color reporters and the ability to skip tests with 'x', plus this comment,but did not alter the specs in any other way.
 describe "restricted array" do
   it "length method" do
     size = 5
