@@ -78,20 +78,22 @@ end
 def binary_search(array, length, value_to_find)
   search_position = (length - 1)
   found = false
-  unless found == true
-    length.times do
-      if array[search_position] == value_to_find
-        found = true
-      elsif
-        array[search_position] > value_to_find
-          search_position -= (search_position / 2)
-      elsif
-        array[search_position] < value_to_find
-          search_position += (search_position / 2)
+    unless found == true
+      (length / 2).times do
+        unless array[search_position] == nil
+          if array[search_position] == value_to_find
+            found = true
+          elsif
+            array[search_position] > value_to_find
+              search_position -= (search_position / 2)
+          elsif
+            array[search_position] < value_to_find
+              search_position += (search_position / 2)
+          end
+        end
       end
     end
-    return found
-  end
+  return found
 end
 
 # Helper method provided to sort the array in ascending order
