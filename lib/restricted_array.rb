@@ -20,7 +20,7 @@ class RestrictedArray
   end
 
   # Given the index 'key', returns the value at that index in the restricted array
-  def [](key)
+  def [](key) # the index 'key' is the argument
     if key >= 0 && key < @array_size
       return @internal_array[key]
     else
