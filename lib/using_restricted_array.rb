@@ -75,12 +75,27 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  (0..(length - 1)).each do |index|
+  # (0..(length - 1)).each do |index|
+  #   if array[index] == value_to_find
+  #     return true
+  #   end
+  # end
+  #   return false
+  low = array[0]
+  mid = (low + (length - 1 ))/2
+
+  (0..(length - 1 )).each do |index|
     if array[index] == value_to_find
       return true
+    elsif array[index] < value_to_find
+      low = mid + 1
+    elsif array[index] > value_to_find
+      high = mid - 1
     end
   end
-    return false
+
+  return false 
+
 end
 
 # Helper method provided to sort the array in ascending order
