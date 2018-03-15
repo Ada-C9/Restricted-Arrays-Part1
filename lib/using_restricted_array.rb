@@ -62,20 +62,23 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
+  i = 0
+  j = length - 1
 
-  fwd_array = sorted(array, length)
-  reverse_array = []
+  (length/2).times do
+    temp = array[i]
 
-  i = -1
+    array[i] = array[j]
+    array[j] = temp
 
-  while fwd_array[i] != nil
-    reverse_array <<  fwd_array[i]
-    i -= 1
+    i += 1
+    j -= 1
   end
 
-  return reverse_array
+  return array
 end
 
+# Redo this :) At home...
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
