@@ -41,37 +41,91 @@ def search(array, length, value_to_find)
   return value_found
 end
 #
+
+def find_first_non_nil (array, length)
+  # I made this to help my find_largest and find_smallest
+  # methods to not break when arrays have values of nil
+  # at one or more positions.
+  first_non_nil = false
+  index = 0
+  until first_non_nil != false
+    length.times do
+      if array[index] != nil
+        first_non_nil = index
+      else
+        index +=1
+      end
+    end
+  end
+  return first_non_nil
+end
+
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  largest = array[0]
-  length.times do |index|
-    if array[index] > largest
+  # This is not passing on sorted, reversed arrays, but I think
+  # that might be because the test is broken.  It seems to be
+  # asserting equal to the array's minimum value instead of the maximum.
+  first_non_nil = find_first_non_nil(array, length)
+  if array[0] == nil
+    largest = array[first_non_nil]
+  else
+    largest = array[0]
+  end
+  index = 0
+  length.times do
+    if array[index] == nil
+    elsif array[index] > largest
       largest = array[index]
     end
+    index += 1
   end
   return largest
 end
-#
+
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 def find_smallest(array, length)
-  smallest = array[0]
+  first_non_nil = find_first_non_nil(array, length)
+  nil_count = first_non_nil - 0
+  smallest = array[first_non_nil]
   index = 0
   length.times do
-    if array[index] < smallest
+    if array[index] == nil
+      nil_count += 1
+    elsif array[index] < smallest
       smallest = array[index]
-    else
-      index += 1
     end
+    index += 1
+  end
+  if nil_count > 0
+    smallest = nil
   end
   return smallest
 end
 #
+
+
+#
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  # I tried to do this, even though it wasn't assigned yet,
+  # because it was an interesting puzzle.  But because its
+  # test arrays have nil elements, it breaks other things.
+  #Guessing that might be why it's not actually assigned yet.
+  reversed_array = []
+  og_index = length - 1
+  tgt_index = 0
+  unless og_index == -1
+    length.times do
+      reversed_array[tgt_index] = array[og_index]
+      tgt_index += 1
+      og_index -= 1
+    end
+  end
+  return reversed_array
 end
+
 #
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
@@ -103,6 +157,7 @@ end
 # (nested loop of size n each)
 # Space complexity = O(1) since the additional storage needed does not depend
 #                    on input array size.
+
 def sort(array, length)
   length.times do |index| # outer loop - n elements
     min_index = index # assume index is where the next minimally value is
@@ -120,4 +175,5 @@ def sort(array, length)
     end
   end
 end
+
 ## --- END OF METHODS ---
