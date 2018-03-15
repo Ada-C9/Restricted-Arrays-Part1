@@ -64,11 +64,11 @@ def find_smallest(array, length)
   return smallest_value
 end
 
-# Note: will update this after class on March 15th.
-# Reverses the values in the integer array in place
-def reverse(array, length)
-  raise NotImplementedError
-end
+# # Note: will update this after class on March 15th.
+# # Reverses the values in the integer array in place
+# def reverse(array, length)
+#   raise NotImplementedError
+# end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
