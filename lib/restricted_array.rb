@@ -27,7 +27,6 @@ class RestrictedArray
       return nil
     end
   end
-
   # Updates the value at the specified index 'key'
   def []=(key, value)
     if key >= 0 && key < @array_size
