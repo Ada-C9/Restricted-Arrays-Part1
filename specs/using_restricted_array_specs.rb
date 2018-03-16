@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
+require 'pry'
 
 describe "restricted array" do
   it "length method" do
@@ -53,6 +54,7 @@ describe "restricted array" do
     largest = find_largest(my_integer_array, size)
 
     sort(my_integer_array, size)
+    # binding.pry
     largest.must_equal my_integer_array[size - 1]
   end
 
@@ -62,7 +64,6 @@ describe "restricted array" do
     sort(my_integer_array, size)
 
     largest = find_largest(my_integer_array, size)
-
     largest.must_equal my_integer_array[size - 1]
   end
 
@@ -186,4 +187,13 @@ describe "restricted array" do
 
     binary_search(my_integer_array, size, value_to_find).must_equal false
   end
+
+  it "prints each value in the array" do
+    my_array = [1,2,3,4,5]
+
+    output_string = print_array(my_array)
+
+    output_string.must_equal "12345"
+  end
+
 end
