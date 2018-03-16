@@ -74,8 +74,7 @@ def reverse(array, length)
   count_2 = length - 1
   while count_1 <= count_2
     early_value = array[count_1]
-    later_value = array[count_2]
-    array[count_1] = later_value
+    array[count_1] = array[count_2]
     array[count_2] = early_value
     count_1 += 1
     count_2 -= 1
