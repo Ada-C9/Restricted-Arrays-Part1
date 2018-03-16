@@ -1,5 +1,7 @@
+require 'pry'
 require 'minitest/autorun'
 require 'minitest/reporters'
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 
@@ -96,7 +98,6 @@ describe "restricted array" do
     test_array.reverse!
 
     reverse(my_integer_array, size)
-
     length(my_integer_array).must_equal size
     size.times do |i|
       my_integer_array[i].must_equal test_array[i]
