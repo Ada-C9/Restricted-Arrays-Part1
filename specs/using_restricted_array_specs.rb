@@ -104,6 +104,7 @@ describe "restricted array" do
   end
 
   it "reverse array - even count" do
+    
     size = 8
     my_integer_array = RestrictedArray.new(size)
     test_array = Array.new(size)
@@ -121,6 +122,7 @@ describe "restricted array" do
   end
 
   it "find largest in sorted, reversed array" do
+
     size = 14
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
@@ -132,6 +134,7 @@ describe "restricted array" do
   end
 
   it "find smallest in sorted, reversed array" do
+
     size = 11
     my_integer_array = RestrictedArray.new(size)
     sort(my_integer_array, size)
