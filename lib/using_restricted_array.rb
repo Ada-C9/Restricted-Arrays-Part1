@@ -63,12 +63,14 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  reversed_array = RestrictedArray.new(length)
-  length.times do |i|
-    reversed_array[i] = array[length - 1 - i]
-  end
-  length.times do |i|
-    array[i] = reversed_array[i]
+  i = 0
+  j = length - 1
+  while i < j
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+    i += 1
+    j -= 1
   end
   return array
 end
