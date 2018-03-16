@@ -1,5 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'minitest/skip_dsl'
+require 'pry'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
 
@@ -7,6 +9,7 @@ describe "restricted array" do
   it "length method" do
     size = 5
     my_integer_array = RestrictedArray.new(size)
+    print_array(my_integer_array)
 
     my_integer_array_length = length(my_integer_array)
 
