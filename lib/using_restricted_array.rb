@@ -109,26 +109,31 @@ end
 #
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  # I tried to do this, even though it wasn't assigned yet,
-  # because it was an interesting puzzle.  It's failing
-  # the tests that involve reversed arrays, but after using
-  # pry a bunch to see what was going on, I am going to go
-  # out on a limb and guess that the failures are due to the
-  # tests being set up  to teach us something about
-  # destructive and non-destructive array methods, and that
-  # we just haven't gotten all the instructions for that
-  # part of the assignment yet.
-  reversed_array = []
-  og_index = length - 1
-  tgt_index = 0
-  unless og_index == -1
-    length.times do
-      reversed_array[tgt_index] = array[og_index]
-      tgt_index += 1
-      og_index -= 1
-    end
+  ##ORIGINAL VERSION: NOT A REVERSE IN PLACE
+  # reversed_array = []
+  # og_index = length - 1
+  # tgt_index = 0
+  # unless og_index == -1
+  #   length.times do
+  #     reversed_array[tgt_index] = array[og_index]
+  #     tgt_index += 1
+  #     og_index -= 1
+  #   end
+  # end
+  # return reversed_array
+
+  # REVERSE IN PLACE:
+  origin_index = length - 1
+  target_index = 0
+  temp = nil
+  (length / 2).times do
+    temp = array[target_index]
+    array[target_index] = array[origin_index]
+    array[origin_index] = temp
+    origin_index -= 1
+    target_index += 1
   end
-  return reversed_array
+  return array
 end
 
 #
