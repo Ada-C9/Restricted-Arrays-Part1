@@ -81,9 +81,23 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# def reverse(array, length)
-#   raise NotImplementedError
-# end
+def reverse(array, length)
+  i = 0
+  j = length - 1
+  if length == 0
+    return false
+  else
+    while i < j
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+      i += 1
+      j -= 1
+    end
+  end
+  return array
+end
+
 # [1, 2, 3, 4, 5]
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
