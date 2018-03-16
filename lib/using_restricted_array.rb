@@ -17,8 +17,8 @@ end
 
 # Prints each integer values in the array
 def print_array(array)
-  string = "#{array[0]}"
-  i = 1
+  string = ""
+  i = 0
   until array[i] == nil
     string += " #{array[i]}"
     i += 1
