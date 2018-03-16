@@ -1,4 +1,6 @@
+
 require_relative 'restricted_array.rb'
+require 'pry'
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -73,7 +75,23 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  if length == 1
+    return array
+  end
+  i = 0
+  j = length - 1
+  # binding.pry
+  while i < j
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+
+    i += 1
+    j -= 1
+  end
+
+  return array
+  # raise NotImplementedError
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
