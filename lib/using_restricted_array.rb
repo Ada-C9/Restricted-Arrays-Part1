@@ -69,14 +69,20 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  # raise NotImplementedError
-  # reversed_array = []
-  # index = 0
-  # while index < length
-  #   reversed_array[index] = array[- 1 - index]
-  #   i += 1
-  # end
-  # return reversed_array
+  if length == 1
+    return array
+  end
+
+  i = 0
+  j = length-1
+
+  while i < j
+    array[i] = array[j]
+    array[j] = array[i]
+    i += 1
+    j -= 1
+  end
+
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
