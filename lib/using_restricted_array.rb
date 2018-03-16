@@ -76,7 +76,21 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  while length < 2
+    return nil
+  end
+
+  front_index = 0
+  back_index = length - 1
+
+  while front_index < back_index
+    temp = array[front_index]
+    array[front_index] = array[back_index]
+    array[back_index] = temp
+
+    front_index = front_index + 1
+    back_index = back_index - 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
