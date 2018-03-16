@@ -64,11 +64,22 @@ def find_smallest(array, length)
   return smallest_value
 end
 
-# # Note: will update this after class on March 15th.
-# # Reverses the values in the integer array in place
-# def reverse(array, length)
-#   raise NotImplementedError
-# end
+# Reverses the values in the integer array in place
+def reverse(array, length)
+  i = 0
+  j = length - 1
+  while i < j
+    # (Ruby specific construct)
+    # array[i], array[j] = array[j], array[i]
+    # (generic solution: what Shruti wants to see)
+    l = array[i]
+    array[i] = array[j]
+    array[j] = l
+    i += 1
+    j -= 1
+  end
+  return array
+end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
