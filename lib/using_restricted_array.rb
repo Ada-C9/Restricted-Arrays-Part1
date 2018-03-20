@@ -69,18 +69,21 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  raise NotImplementedError
+  a = 0
+  b = length - 1
+
+  while a < b
+    temp = array[a]
+    array[a] = array[b]
+    array[b] = temp
+    a += 1
+    b -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 def binary_search(array, length, value_to_find)
-  # (0..(length - 1)).each do |index|
-  #   if array[index] == value_to_find
-  #     return true
-  #   end
-  # end
-  #   return false
   low = array[0]
   mid = (low + (length - 1 ))/2
 
@@ -94,7 +97,7 @@ def binary_search(array, length, value_to_find)
     end
   end
 
-  return false 
+  return false
 
 end
 
