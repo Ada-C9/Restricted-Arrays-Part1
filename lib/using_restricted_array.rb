@@ -81,7 +81,7 @@ def reverse(array, length)
       array[count] = array[i]
       array[i] = a
 
-      index -= 1
+      i -= 1
       count += 1
     end
   end
