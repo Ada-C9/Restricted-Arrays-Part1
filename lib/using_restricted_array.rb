@@ -46,6 +46,7 @@ def find_first_non_nil (array, length)
   # I made this to help my find_largest and find_smallest
   # methods to not break when arrays have values of nil
   # at one or more positions.
+  # Time complexity for this is linear, space complexity is constant.
   first_non_nil = false
   index = 0
   until first_non_nil != false
@@ -63,9 +64,6 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 def find_largest(array, length)
-  # This is not passing on sorted, reversed arrays, but I think
-  # that might be because the test is broken.  It seems to be
-  # asserting equal to the array's minimum value instead of the maximum.
   first_non_nil = find_first_non_nil(array, length)
   if array[0] == nil
     largest = array[first_non_nil]
