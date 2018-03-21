@@ -67,19 +67,16 @@ end
 
 # Reverses the values in the integer array in place
 def reverse(array, length)
-  reverse_array = Array.new(length)
-  length.times do |index|
-    reverse_array[index] = array[index]
+  bottom = 0
+  top = length - 1
+  while bottom < top
+    top_value = array[top]
+    array[top] = array[bottom]
+    array[bottom] = top_value
+    bottom += 1
+    top -= 1
   end
 
-  integer_position = 0
-  reverse_integer_position = length - 1
-
-  while reverse_integer_position >= 0
-    array[integer_position] = reverse_array[reverse_integer_position]
-    reverse_integer_position -= 1
-    integer_position += 1
-  end
   return array
 end
 
