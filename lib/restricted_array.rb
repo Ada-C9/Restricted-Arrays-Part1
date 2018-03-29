@@ -1,6 +1,7 @@
 # Do not update this file
 # Simulating integer array from other, C like languages (C, C++, C#, Java)
 # Native arrays in these languages have only certain methods available.
+
 class RestrictedArray
   # creates a restricted array of default size i.e. 20 or of size passed
   def initialize(*args)
