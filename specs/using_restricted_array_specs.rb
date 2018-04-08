@@ -2,13 +2,16 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
+require 'minitest/skip_dsl'
 
 describe "restricted array" do
   it "length method" do
     size = 5
     my_integer_array = RestrictedArray.new(size)
+    #=> [5 random numbers]
 
     my_integer_array_length = length(my_integer_array)
+    #=> 5
 
     my_integer_array_length.must_equal size
   end
