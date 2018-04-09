@@ -86,8 +86,10 @@ end
 def binary_search(array, length, value_to_find)
   low = 0
   high = length - 1
-  mid = ((low + high) / 2)
-  while low < high
+
+  while low <= high
+    mid = (low + high) / 2
+
     if array[mid] == value_to_find
       return true
     elsif array[mid] > value_to_find
@@ -95,14 +97,8 @@ def binary_search(array, length, value_to_find)
     elsif array[mid] < value_to_find
       low = mid + 1
     end
-    if array[low] == value_to_find
-      return true
-    elsif array[high] == value_to_find
-      return true
-    else
-      return false
-    end
   end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
