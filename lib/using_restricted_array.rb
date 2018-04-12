@@ -137,26 +137,67 @@ end
 #
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
+
 def binary_search(array, length, value_to_find)
-  search_position = (length - 1)
+  low_index = 0
+  high_index = length - 1
+  search_position = (low_index + length / 2)
   found = false
+  ((Math.log2(length).to_i) + 1).times do #Adds 1 to account for lengths where the actual log2 is a decimal number.
     unless found == true
-      (length / 2).times do
-        unless array[search_position] == nil
-          if array[search_position] == value_to_find
-            found = true
-          elsif
-            array[search_position] > value_to_find
-              search_position -= (search_position / 2)
-          elsif
-            array[search_position] < value_to_find
-              search_position += (search_position / 2)
-          end
-        end
+      if array[search_position] == value_to_find
+        found = true
+        return found
+      elsif array[search_position] < value_to_find
+        low_index = search_position
+        search_position = (low_index + (high_index + 1)) / 2
+      elsif array[search_position] > value_to_find
+        high_index = search_position
+        search_position = (low_index + high_index) / 2
       end
     end
+  end
   return found
 end
+
+
+# Version of binary search with 1 less variable -- work in pogress.  NOT FUNCTIONAL NOW.
+
+
+# def binary_search(array, length, value_to_find)
+#   target_index = length - 1
+#   found = false
+#   if array[0] == value_to_find || array[target_index] == value_to_find
+#     found = true
+#     return found
+#   else
+#     step_size = target_index / 2
+#   end
+#
+#   ((Math.log2(length).to_i) + 1).times do
+#     unless found == true
+#       if array[target_index] == value_to_find
+#         found = true
+#         return found
+#       else
+#         if value_to_find < array[target_index]
+#           target_index -= step_size
+#         elsif value_to_find > array[target_index]
+#           target_index += step_size
+#         end
+#         step_size = step_size / 2
+#       end
+#     end
+#   end
+#   return found
+# end
+
+
+
+
+
+
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
