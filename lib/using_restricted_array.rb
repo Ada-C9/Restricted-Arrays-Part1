@@ -8,6 +8,7 @@ require_relative 'restricted_array.rb'
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 def length(array)
   raise NotImplementedError
+  array.length
 end
 
 # Prints each integer values in the array
