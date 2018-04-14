@@ -28,11 +28,12 @@ end
 # Returns true if found, false otherwise.
 def search(array, length, value_to_find)
   i = 0
-  until array[i] == nil
+  while array[i] != nil
     if value_to_find == array[i]
       return true
-    end
+    else
     i += 1
+    end
   end
   return false
 end
@@ -66,16 +67,22 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-def reverse(array, length)
-  first = 0
-  final = -1
-  while first < length
-    array[first] = array[final]
-    array[final] = array[first]
-    first += 1
-    final -= 1
+def reverse(array, length) 
+  if array == nil
+    return false
   end
-  return array
+
+  i = 0
+  j = length - 1
+
+  while i < j
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+    i += 1 #
+    j -= 1
+  end
+  return true
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
